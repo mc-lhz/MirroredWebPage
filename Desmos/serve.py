@@ -4,9 +4,11 @@ PORT = 8137
 DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(DIR)
 
+
 class Handler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *args):
         pass  # 静默日志
+
 
 if __name__ == "__main__":
     with socketserver.ThreadingTCPServer(("127.0.0.1", PORT), Handler) as httpd:

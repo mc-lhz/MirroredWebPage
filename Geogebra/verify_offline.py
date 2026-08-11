@@ -11,6 +11,7 @@ Usage:
   python verify_offline.py http     # http://127.0.0.1:8138
   python verify_offline.py http --online  # do not abort external requests
 """
+
 import os, sys, pathlib
 from playwright.sync_api import sync_playwright
 
@@ -33,17 +34,30 @@ def main():
         pg = ctx.new_page()
 
         if not online:
+
             def route(rt):
                 u = rt.request.url
-                if u.startswith(("file://", "data:", "blob:", "about:")) or "127.0.0.1" in u:
+                if (
+                    u.startswith(("file://", "data:", "blob:", "about:"))
+                    or "127.0.0.1" in u
+                ):
                     rt.continue_()
                 else:
                     ext.append(u)
                     rt.abort()
+
             pg.route("**/*", route)
 
-        pg.on("pageerror", lambda e: errs.append("pageerror: " + str(e).split("\n")[0][:150]))
-        pg.on("console", lambda m: errs.append("console: " + m.text[:140]) if m.type == "error" else None)
+        pg.on(
+            "pageerror",
+            lambda e: errs.append("pageerror: " + str(e).split("\n")[0][:150]),
+        )
+        pg.on(
+            "console",
+            lambda m: (
+                errs.append("console: " + m.text[:140]) if m.type == "error" else None
+            ),
+        )
         pg.on("requestfailed", lambda r: failed.append(r.url[-120:]))
 
         print(f"[load] {URL}")
@@ -84,7 +98,9 @@ def main():
                 label = (btn.inner_text() or "").strip().replace("\n", " ")
                 ok = want.lower().replace(" ", "") in label.lower().replace(" ", "")
                 results.append((want, ok, label))
-                print(f"  {'OK  ' if ok else 'FAIL'} click '{want}' -> picker now reads '{label}'")
+                print(
+                    f"  {'OK  ' if ok else 'FAIL'} click '{want}' -> picker now reads '{label}'"
+                )
             except Exception as e:
                 results.append((want, False, f"EXC {e}"))
                 print(f"  FAIL click '{want}': {str(e).splitlines()[0][:160]}")

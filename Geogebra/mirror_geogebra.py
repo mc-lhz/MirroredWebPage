@@ -5,7 +5,15 @@ from playwright.sync_api import sync_playwright
 TARGET = "https://www.geogebra.org/calculator"
 OUT = r"C:\Users\Administrator\Desktop\Mirror\geogebra-mirror"
 os.makedirs(OUT, exist_ok=True)
-APPS = ["Graphing", "3D Calculator", "Geometry", "CAS", "Probability", "Scientific", "Spreadsheet"]
+APPS = [
+    "Graphing",
+    "3D Calculator",
+    "Geometry",
+    "CAS",
+    "Probability",
+    "Scientific",
+    "Spreadsheet",
+]
 FRAG_PROBE_MAX = 40
 
 # Use the SERVER HTML for the entry document. pg.content() returns the LIVE
@@ -18,13 +26,25 @@ main_html_bytes = None
 
 mapping = {}
 CT_EXT = {
-    "application/javascript": ".js", "text/javascript": ".js", "application/x-javascript": ".js",
-    "text/css": ".css", "application/wasm": ".wasm", "application/json": ".json",
-    "image/svg+xml": ".svg", "image/png": ".png", "image/jpeg": ".jpg", "image/gif": ".gif",
-    "image/webp": ".webp", "font/woff": ".woff", "font/woff2": ".woff2",
-    "application/font-woff": ".woff", "application/octet-stream": ".bin",
-    "text/plain": ".txt", "application/x-gwt-rpc": ".txt",
+    "application/javascript": ".js",
+    "text/javascript": ".js",
+    "application/x-javascript": ".js",
+    "text/css": ".css",
+    "application/wasm": ".wasm",
+    "application/json": ".json",
+    "image/svg+xml": ".svg",
+    "image/png": ".png",
+    "image/jpeg": ".jpg",
+    "image/gif": ".gif",
+    "image/webp": ".webp",
+    "font/woff": ".woff",
+    "font/woff2": ".woff2",
+    "application/font-woff": ".woff",
+    "application/octet-stream": ".bin",
+    "text/plain": ".txt",
+    "application/x-gwt-rpc": ".txt",
 }
+
 
 def ext_for(ct):
     if ct:
@@ -32,6 +52,7 @@ def ext_for(ct):
         if c in CT_EXT:
             return CT_EXT[c]
     return ".bin"
+
 
 def save_path(url, ct):
     p = urlparse(url)
@@ -53,8 +74,12 @@ def save_path(url, ct):
         fpath = os.path.join(OUT, host + path)
     return rel, fpath
 
+
 def should_capture(url):
-    return not (url.startswith("data:") or url.startswith("blob:") or url.startswith("about:"))
+    return not (
+        url.startswith("data:") or url.startswith("blob:") or url.startswith("about:")
+    )
+
 
 def register(url, rel):
     if url not in mapping:
@@ -64,6 +89,7 @@ def register(url, rel):
             mapping["http://" + url[8:]] = rel
         elif url.startswith("http:"):
             mapping["//" + url[7:]] = rel
+
 
 def on_response(response):
     global main_html_bytes
@@ -92,33 +118,46 @@ def on_response(response):
     with open(fpath, "wb") as f:
         f.write(body)
 
+
 def rewrite(content):
     for url, rel in mapping.items():
         if len(url) > 8:
             content = content.replace(url, rel)
     return content
 
+
 print("[1/4] loading page + exercising modes ...")
 with sync_playwright() as p:
     b = p.chromium.launch(headless=True)
-    pg = b.new_page(viewport={"width": 1366, "height": 900},
-        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36")
+    pg = b.new_page(
+        viewport={"width": 1366, "height": 900},
+        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+    )
     pg.on("response", on_response)
     pg.goto(TARGET, wait_until="load", timeout=90000)
-    try: pg.wait_for_load_state("networkidle", timeout=40000)
-    except Exception: pass
+    try:
+        pg.wait_for_load_state("networkidle", timeout=40000)
+    except Exception:
+        pass
     pg.wait_for_timeout(10000)
     for app in APPS:
-        pg.evaluate("""() => { const x=document.querySelector('.suiteAppPickerButton'); if(x) x.click(); }""")
+        pg.evaluate(
+            """() => { const x=document.querySelector('.suiteAppPickerButton'); if(x) x.click(); }"""
+        )
         pg.wait_for_timeout(1500)
-        pg.evaluate("""(txt) => {
+        pg.evaluate(
+            """(txt) => {
           const rows=Array.from(document.querySelectorAll('.appPickerRow, .appPickerLabel'));
           for(const r of rows){ if((r.textContent||'').trim()===txt){ r.click(); return; } }
           const all=Array.from(document.querySelectorAll('*'));
           for(const e of all){ if((e.textContent||'').trim()===txt){ e.click(); return; } }
-        }""", app)
-        try: pg.wait_for_load_state("networkidle", timeout=20000)
-        except Exception: pass
+        }""",
+            app,
+        )
+        try:
+            pg.wait_for_load_state("networkidle", timeout=20000)
+        except Exception:
+            pass
         pg.wait_for_timeout(6000)
     b.close()
 
@@ -133,7 +172,7 @@ else:
 deferred_base = None
 for u in mapping:
     if "/deferredjs/" in u:
-        deferred_base = u[:u.rfind("/") + 1]
+        deferred_base = u[: u.rfind("/") + 1]
         break
 print("[2/4] deferredjs base:", deferred_base)
 
@@ -163,7 +202,11 @@ with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
 text_exts = (".js", ".css", ".json", ".html", ".svg", ".xml", ".txt", ".ftl")
 for url, rel in list(mapping.items()):
     p = urlparse(url)
-    fpath = OUT + rel if p.netloc == "www.geogebra.org" else os.path.join(OUT, p.netloc + rel)
+    fpath = (
+        OUT + rel
+        if p.netloc == "www.geogebra.org"
+        else os.path.join(OUT, p.netloc + rel)
+    )
     if not os.path.exists(fpath) or not fpath.endswith(text_exts):
         continue
     try:
@@ -178,4 +221,15 @@ for url, rel in list(mapping.items()):
 
 print("mapping entries:", len(mapping))
 print("index.html bytes:", os.path.getsize(os.path.join(OUT, "index.html")))
-print("total files:", sum(len(fspath) for _, _, fspath in os.walk(OUT) if os.path.isfile(os.path.join(_, fspath))) if False else 0)
+print(
+    "total files:",
+    (
+        sum(
+            len(fspath)
+            for _, _, fspath in os.walk(OUT)
+            if os.path.isfile(os.path.join(_, fspath))
+        )
+        if False
+        else 0
+    ),
+)
