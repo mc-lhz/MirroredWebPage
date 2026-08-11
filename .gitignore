@@ -1,0 +1,13 @@
+# WorkBuddy 代理内部数据（非交付物）
+.workbuddy/
+
+# GeoGebra Firebase 死 stub（离线用不到，且含公开客户端密钥）
+Geogebra/apps/firebase/
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 日志
+*.log
