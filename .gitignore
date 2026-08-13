@@ -9,5 +9,16 @@ Geogebra/apps/firebase/
 Thumbs.db
 Desktop.ini
 
+# 构建依赖（离线镜像只需 dist/ 单文件产物）
+node_modules/
+
+# 调研/临时产物（非交付物，且可能含测试凭据与截图）
+_scratch*
+$TMPD/
+
+# 与本仓库（MirroredWebPage 离线镜像集合）无关的站点分析报告
+VoiceHub站点分析报告.md
+Canva镜像可行性分析.md
+
 # 日志
 *.log

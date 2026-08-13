@@ -1,0 +1,9 @@
+{
+  "name": "draw.io (offline mirror)",
+  "short_name": "draw.io",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f8f8f8",
+  "theme_color": "#d89000",
+  "icons": []
+}

@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "total_requests": 27,
+    "same_origin_count": 24,
+    "external_hosts": [
+      "apis.google.com",
+      "js.pusher.com",
+      "www.dropbox.com"
+    ],
+    "same_origin_paths_sample": [
+      "/",
+      "/cache",
+      "/images/github-logo.svg",
+      "/images/spin.gif",
+      "/js/app.min.js",
+      "/js/bootstrap.js",
+      "/js/dropbox/Dropbox-sdk.min.js",
+      "/js/extensions.min.js",
+      "/js/main.js",
+      "/js/onedrive/OneDrive.js",
+      "/js/shapes-14-6-5.min.js",
+      "/js/stencils.min.js",
+      "/math4/es5/core.js",
+      "/math4/es5/fonts/mathjax-tex-font/svg.js",
+      "/math4/es5/input/asciimath.js",
+      "/math4/es5/input/tex.js",
+      "/math4/es5/output/svg.js",
+      "/math4/es5/startup.js",
+      "/math4/es5/ui/safe.js",
+      "/mxgraph/css/common.css",
+      "/notifications",
+      "/resources/dia_zh.txt",
+      "/styles/grapheditor.css",
+      "/styles/high-contrast.css"
+    ]
+  },
+  "all": [
+    {
+      "url": "https://app.diagrams.net/",
+      "method": "GET",
+      "rtype": "document"
+    },
+    {
+      "url": "https://app.diagrams.net/styles/grapheditor.css",
+      "method": "GET",
+      "rtype": "stylesheet"
+    },
+    {
+      "url": "https://app.diagrams.net/js/bootstrap.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/images/spin.gif",
+      "method": "GET",
+      "rtype": "image"
+    },
+    {
+      "url": "https://app.diagrams.net/js/main.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/styles/high-contrast.css",
+      "method": "GET",
+      "rtype": "stylesheet"
+    },
+    {
+      "url": "https://app.diagrams.net/js/app.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/mxgraph/css/common.css",
+      "method": "GET",
+      "rtype": "stylesheet"
+    },
+    {
+      "url": "https://js.pusher.com/7.0.3/pusher.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://apis.google.com/js/api.js?onload=DrawGapiClientCallback",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/startup.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/resources/dia_zh.txt",
+      "method": "GET",
+      "rtype": "xhr"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/core.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/js/shapes-14-6-5.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/js/stencils.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/js/extensions.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/output/svg.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/input/tex.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/input/asciimath.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/ui/safe.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/math4/es5/fonts/mathjax-tex-font/svg.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/cache?alive",
+      "method": "GET",
+      "rtype": "xhr"
+    },
+    {
+      "url": "https://app.diagrams.net/notifications",
+      "method": "GET",
+      "rtype": "xhr"
+    },
+    {
+      "url": "https://app.diagrams.net/js/dropbox/Dropbox-sdk.min.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/js/onedrive/OneDrive.js",
+      "method": "GET",
+      "rtype": "script"
+    },
+    {
+      "url": "https://app.diagrams.net/images/github-logo.svg",
+      "method": "GET",
+      "rtype": "image"
+    },
+    {
+      "url": "https://www.dropbox.com/static/api/2/dropins.js",
+      "method": "GET",
+      "rtype": "script"
+    }
+  ]
+}
