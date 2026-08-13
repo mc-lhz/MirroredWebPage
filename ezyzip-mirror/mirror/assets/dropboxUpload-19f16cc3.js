@@ -1,0 +1,1 @@
+import r from"./DropboxService-84bb9ad1.js";import{e as n}from"./Preview-7eefdc30.js";function c(e){return e??new r}async function i(e){e.isAuthenticated()||(n("Dropbox not authenticated — starting authentication"),await e.authenticate())}async function p(e,t,o,a={}){return await i(e),a.single?e.uploadFile(t,o):e.uploadLargeFile(t,o,a.progressFn)}export{i as a,c as e,p as u};

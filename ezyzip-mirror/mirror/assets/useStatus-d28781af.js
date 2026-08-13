@@ -1,0 +1,1 @@
+import{f as s}from"./Preview-7eefdc30.js";function e(){return{configure:!1,done:!1,loading:!1,processing:!1,savingAll:!1,savingAllDone:!1,progress:{currentFile:"",progress:0},uploading:!1,uploadComplete:!1,passwordNotSupported:!1,passwordRequired:!1,passwordError:!1,showPasswordInput:!1}}function o(){return{status:s(e())}}export{o as u};
