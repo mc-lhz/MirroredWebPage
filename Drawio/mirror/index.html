@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+    /* 离线 shield：中和 draw.io 运行时动态注入的云集成 SDK 外部脚本
+       (js.pusher.com / apis.google.com / dropbox dropins)，避免离线加载时被浏览器 abort 但仍计入外部请求。
+       核心绘图完全本地，云集成离线不可用属预期。draw.io 通过 mxscript() 用 setAttribute('src', …) 注入，
+       故同时拦截 HTMLScriptElement.src 属性赋值与 Element.prototype.setAttribute('src') 两条路径。 */
+    (function () {
+      var BLOCK = ['js.pusher.com', 'apis.google.com', 'www.dropbox.com/static/api', 'drive.google.com'];
+      function isBlocked(u) { return u && BLOCK.some(function (h) { return u.indexOf(h) >= 0; }); }
+      function isScript(el) { return el && (el instanceof HTMLScriptElement || (el.tagName && el.tagName.toUpperCase() === 'SCRIPT')); }
+      try {
+        var proto = HTMLScriptElement.prototype;
+        var desc = Object.getOwnPropertyDescriptor(proto, 'src');
+        if (desc && desc.set) {
+          var origSet = desc.set;
+          Object.defineProperty(proto, 'src', {
+            configurable: true, enumerable: desc.enumerable,
+            get: desc.get,
+            set: function (v) { if (isBlocked(v)) { console.warn('[offline-shield] blocked external script: ' + v); return; } origSet.call(this, v); }
+          });
+        }
+      } catch (e) {}
+      try {
+        var origSetAttr = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function (name, value) {
+          if (isScript(this) && (name === 'src' || name === 'SRC') && isBlocked(value)) {
+            console.warn('[offline-shield] blocked external script attr: ' + value);
+            return;
+          }
+          return origSetAttr.call(this, name, value);
+        };
+      } catch (e) {}
+    })();
+    </script>
     <title>Flowchart Maker &amp; Online Diagram Software</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

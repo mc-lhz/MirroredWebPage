@@ -1,0 +1,218 @@
+{
+  "pages": {
+    "Drawio": {
+      "dir": "Drawio/mirror",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    },
+    "Excalidraw": {
+      "dir": "Excalidraw/dist",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": {
+            "drew_elements": 1
+          }
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": {
+            "drew_elements": 1
+          }
+        }
+      ]
+    },
+    "Ezyzip": {
+      "dir": "Ezyzip/mirror",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    },
+    "Mermaid": {
+      "dir": "Mermaid/dist",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    },
+    "Reactflow": {
+      "dir": "Reactflow/dist",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    },
+    "Tldraw": {
+      "dir": "Tldraw/dist",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    },
+    "ToolhelperJson": {
+      "dir": "ToolhelperJson",
+      "all_ok": true,
+      "rounds": [
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        },
+        {
+          "ok": true,
+          "boot_ok": true,
+          "surface_ok": true,
+          "external": [],
+          "external_count": 0,
+          "page_errors": [],
+          "page_error_count": 0,
+          "console_errors": [],
+          "console_error_count": 0,
+          "interact": null
+        }
+      ]
+    }
+  }
+}

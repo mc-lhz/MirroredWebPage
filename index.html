@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>离线网页镜像合集</title>
+  <style>
+    :root { --bg:#0f1115; --card:#1a1d24; --fg:#e6e6e6; --muted:#9aa0aa; --accent:#5b8cff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+           background:var(--bg); color:var(--fg); padding:40px 20px; }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    h1 { font-size: 24px; margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 28px; font-size: 14px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    a.card { display:block; text-decoration:none; color:var(--fg); background:var(--card);
+             border:1px solid #262a33; border-radius:12px; padding:18px 20px; transition:.15s; }
+    a.card:hover { border-color:var(--accent); transform: translateY(-2px); }
+    a.card .t { font-size:17px; font-weight:600; }
+    a.card .d { color:var(--muted); font-size:13px; margin-top:6px; }
+    a.card .p { color:var(--accent); font-size:12px; margin-top:10px; font-family:ui-monospace,Consolas,monospace; }
+    .note { margin-top:32px; padding:16px 18px; background:#16191f; border:1px solid #262a33;
+            border-radius:10px; color:var(--muted); font-size:13px; line-height:1.7; }
+    code { background:#0c0e12; padding:2px 6px; border-radius:5px; color:#cdd6f4; }
+    footer { margin-top:28px; color:#5a606b; font-size:12px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>离线网页镜像合集</h1>
+    <p class="sub">以下工具均为<strong>纯本地离线镜像</strong>，不依赖任何云端服务。点开即用。</p>
+
+    <div class="grid">
+      <a class="card" href="Drawio/mirror/index.html" target="_blank">
+        <div class="t">Drawio</div>
+        <div class="d">流程图 / UML 绘图（draw.io）</div>
+        <div class="p">Drawio/mirror/index.html</div>
+      </a>
+      <a class="card" href="Excalidraw/dist/index.html" target="_blank">
+        <div class="t">Excalidraw</div>
+        <div class="d">手绘风白板 / 草图</div>
+        <div class="p">Excalidraw/dist/index.html</div>
+      </a>
+      <a class="card" href="Ezyzip/mirror/index.html" target="_blank">
+        <div class="t">Ezyzip</div>
+        <div class="d">压缩 / 解压 / ASAR 提取</div>
+        <div class="p">Ezyzip/mirror/index.html</div>
+      </a>
+      <a class="card" href="Mermaid/dist/index.html" target="_blank">
+        <div class="t">Mermaid</div>
+        <div class="d">图表即代码（流程图/时序图…）</div>
+        <div class="p">Mermaid/dist/index.html</div>
+      </a>
+      <a class="card" href="Reactflow/dist/index.html" target="_blank">
+        <div class="t">Reactflow</div>
+        <div class="d">流程图离线编辑器（React Flow）</div>
+        <div class="p">Reactflow/dist/index.html</div>
+      </a>
+      <a class="card" href="Tldraw/dist/index.html" target="_blank">
+        <div class="t">Tldraw</div>
+        <div class="d">无限画布白板</div>
+        <div class="p">Tldraw/dist/index.html</div>
+      </a>
+      <a class="card" href="ToolhelperJson/index.html" target="_blank">
+        <div class="t">ToolhelperJson</div>
+        <div class="d">JSON 格式化 / 校验 / 预览</div>
+        <div class="p">ToolhelperJson/index.html</div>
+      </a>
+    </div>
+
+    <div class="note">
+      <strong>本地运行方式</strong>（推荐用 HTTP 服务，draw.io / ezyzip 在 <code>file://</code> 下会因 XHR 被浏览器拦截而无法初始化）：<br>
+      在仓库根目录执行 <code>python -m http.server 8000</code>，然后浏览器打开
+      <code>http://127.0.0.1:8000/</code>。<br>
+      或各自目录下执行其 <code>serve.py</code>（Drawio / Ezyzip 专属，默认 8080 端口）。
+    </div>
+
+    <footer>本地离线镜像 · 无需联网</footer>
+  </div>
+</body>
+</html>
