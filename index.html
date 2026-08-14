@@ -31,20 +31,20 @@
     <p class="sub">以下工具均为<strong>纯本地离线镜像</strong>，不依赖任何云端服务。点开即用。</p>
 
     <div class="grid">
-      <a class="card" href="Drawio/mirror/index.html" target="_blank">
+      <a class="card" href="Drawio/index.html" target="_blank">
         <div class="t">Drawio</div>
         <div class="d">流程图 / UML 绘图（draw.io）</div>
-        <div class="p">Drawio/mirror/index.html</div>
+        <div class="p">Drawio/index.html</div>
       </a>
       <a class="card" href="Excalidraw/dist/index.html" target="_blank">
         <div class="t">Excalidraw</div>
         <div class="d">手绘风白板 / 草图</div>
         <div class="p">Excalidraw/dist/index.html</div>
       </a>
-      <a class="card" href="Ezyzip/mirror/index.html" target="_blank">
+      <a class="card" href="Ezyzip/index.html" target="_blank">
         <div class="t">Ezyzip</div>
         <div class="d">压缩 / 解压 / ASAR 提取</div>
-        <div class="p">Ezyzip/mirror/index.html</div>
+        <div class="p">Ezyzip/index.html</div>
       </a>
       <a class="card" href="Mermaid/dist/index.html" target="_blank">
         <div class="t">Mermaid</div>
@@ -72,7 +72,7 @@
       <strong>本地运行方式</strong>（推荐用 HTTP 服务，draw.io / ezyzip 在 <code>file://</code> 下会因 XHR 被浏览器拦截而无法初始化）：<br>
       在仓库根目录执行 <code>python -m http.server 8000</code>，然后浏览器打开
       <code>http://127.0.0.1:8000/</code>。<br>
-      或各自目录下执行其 <code>serve.py</code>（Drawio / Ezyzip 专属，默认 8080 端口）。
+      也可进入具体镜像目录（如 <code>Drawio</code>）执行 <code>python -m http.server 8080</code> 后访问对应端口。
     </div>
 
     <footer>本地离线镜像 · 无需联网</footer>
