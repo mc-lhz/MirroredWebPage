@@ -21,7 +21,7 @@
  * The tracker reads this at CLICK time, so loading it with `defer` is fine.
  * Throwing here is safe - the tracker catches and keeps its own answer.
  *
- * After deploying a change, purge /assets/js/ez-cta-overrides.js by URL in
+ * After deploying a change, purge ../js/ez-cta-overrides.js by URL in
  * Cloudflare: the file carries no cache-busting token (adding one would need
  * the rebuild this hatch exists to avoid).
  *

@@ -480,7 +480,7 @@ sharedUtils = (function (target, sourceId) {
       if (typeof k === "string" && k !== "then" && !(k in t)) {
         throw new Error(
           'shared-utils.js is stale: export "' + k + '" is missing (source ' +
-          sourceId + '). Redeploy /assets/shared-utils-*.js'
+          sourceId + '). Redeploy ./shared-utils-*.js'
         );
       }
       return t[k];
